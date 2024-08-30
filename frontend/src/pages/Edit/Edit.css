@@ -1,0 +1,37 @@
+.edit {
+    margin-top: 25px;
+    padding: 25px;
+    max-width: 400px;
+    margin: 0 auto;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+  }
+  
+  .edit form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .edit input{
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+  }
+  
+  .edit button {
+    padding: 10px;
+    background-color: #5c99ce;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .edit button:hover {
+    background-color: #4a89b5;
+  }
+  
+  label{
+    color: black;
+  }
