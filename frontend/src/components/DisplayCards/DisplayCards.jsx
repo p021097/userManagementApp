@@ -13,7 +13,7 @@ const DisplayCards = () => {
         <div className="display-users-list">
             {
                 usersData.map((user, idx)=>{
-                    return (<Card key={idx} id={user.id} name={user.name} email={user.email} phone={user.phone} website={user.website} company={user.company.name}/>  )
+                    return (<Card key={idx} id={user.id} name={user.name} email={user.email} phone={user.phone} website={user.website} company={user.company} address={user.address}/>  )
                 })
             }
         </div>

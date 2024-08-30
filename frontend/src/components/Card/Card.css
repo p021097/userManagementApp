@@ -31,3 +31,46 @@
     background-color: lightcoral;
     color: white;
 }
+
+.show-company-details, .show-address{
+    width: 20%;
+    padding: 20px;
+    background-color: grey;
+    position: absolute;
+    color: black;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    border-radius: 10px;
+}
+.show-address{
+    width: 20%;
+    padding: 20px;
+    background-color: grey;
+    position: absolute;
+    color: black;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    border-radius: 10px;
+}
+
+.show-company-button, .show-address-button{
+    background-color: red;
+}
+
+.show-company-details-heading, .show-address-heading{
+    width: 100%;
+    font-weight: 500;
+    font-size: larger;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.show-company-details-heading button, .show-address-button{
+    padding: 5px;
+    cursor: pointer;
+}

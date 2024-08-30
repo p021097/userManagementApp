@@ -57,6 +57,23 @@ const updateUser = async (id, updatedUser) => {
   }
 }
 
+// Create new user
+
+const createNewUser = async (formData) => {
+  try {
+    const res = await axios.post(`${url}/users`, formData)
+    if(res.status === 200 || res.status === 201){
+      setUsersData((prevData)=>[...prevData, res.data])
+      alert("User Successfully added")
+    }else{
+      console.error("Error while creating new user");
+    }
+  } catch (error) {
+    console.error(`Error occured while creating new User Error :  ${error}`);
+    
+  }
+}
+
 
 // useEffects
 
@@ -69,7 +86,8 @@ const updateUser = async (id, updatedUser) => {
     usersData,
     setUsersData,
     deleteUser,
-    updateUser
+    updateUser,
+    createNewUser
   };
 
   return (

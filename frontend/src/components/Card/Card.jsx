@@ -1,21 +1,24 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import "./Card.css";
-import {useNavigate} from 'react-router-dom'
+import { useNavigate } from "react-router-dom";
 import { StoreContext } from "../../context/StoreContext";
 
-const Card = ({ id, name, email, phone, website, company }) => {
-  const {deleteUser} = useContext(StoreContext)
-  const navigate = useNavigate()
+const Card = ({ id, name, email, phone, website, company, address }) => {
+  const { deleteUser } = useContext(StoreContext);
+  const [showCompanyDetails, setShowCOmpanyDetails] = useState(false);
+  const [showAddress, setShowAddress] = useState(false);
+
+  const navigate = useNavigate();
   return (
     <div className="user-card">
       <div className="basic-details">
         <p>
           {" "}
-          <strong>id : </strong> {id}
+          <strong>Id : </strong> {id}
         </p>
         <p>
           {" "}
-          <strong>User Name : </strong>
+          <strong>Name : </strong>
           {name}
         </p>
       </div>
@@ -32,14 +35,69 @@ const Card = ({ id, name, email, phone, website, company }) => {
           <strong>Website :</strong> {website}
         </p>
       </div>
-      <div className="other-details">
+      {showCompanyDetails ? (
+        <div className="show-company-details">
+          <div className="show-company-details-heading">
+            <h5>Company Details</h5>
+            <button
+              className="show-company-button"
+              onClick={() => setShowCOmpanyDetails(false)}
+            >
+              X
+            </button>
+          </div>
+
+          <p>
+            <strong>Company Name :</strong> {company.name}
+          </p>
+          <p>
+            <strong>Catch Phrase : </strong> {company.catchPhrase}
+          </p>
+          <p>
+            <strong> BS : </strong> {company.bs}
+          </p>
+        </div>
+      ) : (
+        <></>
+      )}
+      {showAddress ? (
+        <div className="show-address">
+          <div className="show-address-heading">
+            <h5>Address Details</h5>
+            <button
+              className="show-address-button"
+              onClick={() => setShowAddress(false)}
+            >
+              X
+            </button>
+          </div>
+          <p>
+            <strong>Address :</strong> 
+            <span>{address.street} </span>
+            <span>{address.suite} </span>
+            <span>{address.city} </span>
+            <span>{address.zipcode} </span>
+          </p>
+        </div>
+      ) : (
+        <></>
+      )}
+      {/* <div className="other-details">
         <p>
           <strong>Company Name :</strong> {company}
         </p>
-      </div>
+      </div> */}
       <div className="action-buttons">
-        <button onClick={() => navigate(`/edit/${id}`)} className="edit-user">Edit</button>
-        <button onClick={() => deleteUser(id) } className="delete-user">Delete</button>
+        <button onClick={() => navigate(`/edit/${id}`)} className="edit-user">
+          Edit
+        </button>
+        <button onClick={() => setShowCOmpanyDetails(true)}>
+          Company Details
+        </button>
+        <button onClick={() => setShowAddress(true)}>View Address</button>
+        <button onClick={() => deleteUser(id)} className="delete-user">
+          Delete
+        </button>
       </div>
     </div>
   );
