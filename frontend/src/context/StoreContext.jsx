@@ -61,9 +61,11 @@ const updateUser = async (id, updatedUser) => {
 
 const createNewUser = async (formData) => {
   try {
-    const res = await axios.post(`${url}/users`, formData)
+    const generateNewID = usersData.length ? Math.max(...usersData.map(user => user.id)) + 1 : 1
+    const newUser = {...formData, id : generateNewID}
+    const res = await axios.post(`${url}/users`, newUser)
     if(res.status === 200 || res.status === 201){
-      setUsersData((prevData)=>[...prevData, res.data])
+      setUsersData((prevData)=>[...prevData, newUser])
       alert("User Successfully added")
     }else{
       console.error("Error while creating new user");

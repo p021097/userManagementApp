@@ -43,3 +43,15 @@
     color: black;
     width: 80%;
   }
+
+  .expand-buttons{
+    cursor: pointer;
+    color: blue;
+    font-size: larger;
+  }
+
+  .label-heading{
+    cursor: pointer;
+    color: blue;
+    font-size: larger;
+  }

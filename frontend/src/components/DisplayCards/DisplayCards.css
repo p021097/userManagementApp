@@ -16,3 +16,20 @@
     row-gap: 10px;
     column-gap: 25px;
 }
+
+.pagination{
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    column-gap: 10px;
+
+}
+
+.pagination button{
+    padding: 10px;
+}
+
+.active{
+    background-color: black;
+    color: white;
+}
